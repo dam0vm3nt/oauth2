@@ -80,6 +80,7 @@ Credentials handleAccessTokenResponse(
   return new Credentials(
       parameters['access_token'],
       refreshToken: parameters['refresh_token'],
+      idToken: parameters['id_token'],
       tokenEndpoint: tokenEndpoint,
       scopes: scopes,
       expiration: expiration);

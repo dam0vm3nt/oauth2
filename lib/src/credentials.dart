@@ -54,6 +54,9 @@ class Credentials {
   /// expiration date.
   final DateTime expiration;
 
+
+  final String idToken;
+
   /// Whether or not these credentials have expired.
   ///
   /// Note that it's possible the credentials will expire shortly after this is
@@ -74,6 +77,7 @@ class Credentials {
   Credentials(
           this.accessToken,
           {this.refreshToken,
+          this.idToken,
           this.tokenEndpoint,
           Iterable<String> scopes,
           this.expiration})
@@ -131,6 +135,7 @@ class Credentials {
     return new Credentials(
         parsed['accessToken'],
         refreshToken: parsed['refreshToken'],
+        idToken:parsed['id_token'],
         tokenEndpoint: tokenEndpoint,
         scopes: scopes,
         expiration: expiration);
@@ -210,6 +215,7 @@ class Credentials {
     return new Credentials(
         credentials.accessToken,
         refreshToken: this.refreshToken,
+        idToken: credentials.idToken,
         tokenEndpoint: credentials.tokenEndpoint,
         scopes: credentials.scopes,
         expiration: credentials.expiration);
